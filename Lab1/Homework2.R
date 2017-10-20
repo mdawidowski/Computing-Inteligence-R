@@ -1,7 +1,11 @@
+library(genalg)
+library(ggplot2)
+
 phi1 <- matrix(c(-1,2,4,-2,3,4,1,-3,4,1,-2,-4,2,-4,-4,-1,3,-4,1,2,3), ncol=3)
 phi2 <- as.matrix(read.csv("/home/marcin/Computing-Inteligence-R/Lab1/dubois20.cnf.txt", header=FALSE, skip=13, sep="", colClasses=c(NA,NA,NA,"NULL")))
 phi3 <- as.matrix(read.csv("/home/marcin/Computing-Inteligence-R/Lab1/aim-50-1_6-yes1-4.cnf.txt", header=FALSE, skip=13, sep="", colClasses=c(NA,NA,NA,"NULL")))
-fitness = function(substitution, phi){
+fitnessFunc <- function(substitution) {
+  phi = phi2
   counter = 0
   result = FALSE
   max = max(as.numeric(unlist(phi)))
@@ -22,8 +26,12 @@ fitness = function(substitution, phi){
     result = x1 | x2 | x3
     if(!is.na(result)){ if(result){ counter = counter + 1 } }
   }
-  return(counter)
+  return(-counter)
 }
 
-counter = fitness(c(1,0,1,1), phi2)
+GAmodel <- rbga.bin(size = 7, popSize = 200, iters = 200,
+                    mutationChance = 0.01, elitism = T, evalFunc = fitnessFunc)
+summary(GAmodel, echo=TRUE)
+
+plot(GAmodel)
 
