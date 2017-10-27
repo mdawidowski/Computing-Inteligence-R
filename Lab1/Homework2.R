@@ -2,7 +2,7 @@ library(genalg)
 library(ggplot2)
 
 phi1 <- matrix(c(-1,2,4,-2,3,4,1,-3,4,1,-2,-4,2,-4,-4,-1,3,-4,1,2,3), ncol=3)
-phi2 <- as.matrix(read.csv("/home/marcin/Computing-Inteligence-R/Lab1/dubois20.cnf.txt", header=FALSE, skip=13, sep="", colClasses=c(NA,NA,NA,"NULL")))
+phi2 <- as.matrix(read.csv("dubois20.cnf.txt", header=FALSE, skip=13, sep="", colClasses=c(NA,NA,NA,"NULL")))
 
 fitnessFunc <- function(temp) {
   phi = phi2
