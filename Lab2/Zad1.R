@@ -1,4 +1,4 @@
-iris <- as.matrix(iris)
-data <- iris
-res <- cor(data)
-round(res, 2)
+#a
+iris.original <- data.matrix(iris)
+#b
+cov(iris.original)

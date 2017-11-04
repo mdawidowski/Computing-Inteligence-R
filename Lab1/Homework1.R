@@ -1,7 +1,7 @@
 #a
-phi1 <- matrix(c(-1,2,4,-2,3,4,1,-3,4,1,-2,-4,2,-4,-4,-1,3,-4,1,2,3), ncol=3)
+phi1 <- matrix(c(-1,-2,1,1,2,-1,1,2,3,-3,-2,-3,3,2,4,4,4,-4,-4,-4,3,0,0,0,0,0,0,0), ncol=4)
 #b
-phi2 <- as.matrix(read.csv("/home/marcin/Computing-Inteligence-R/Lab1/dubois20.cnf.txt", header=FALSE, skip=13, sep="", colClasses=c(NA,NA,NA,"NULL")))
+phi2 <- as.matrix(read.csv("C:\\Users\\Marcin\\Documents\\GitHub\\Computing-Inteligence-R\\Lab1\\dubois20.cnf.txt", header=FALSE, skip=13, sep="", colClasses=c(NA,NA,NA,"NULL")))
 #c
 fitness = function(temp, phi){
   licz = 0

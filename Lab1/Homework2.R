@@ -1,11 +1,10 @@
 library(genalg)
 library(ggplot2)
 
-phi1 <- matrix(c(-1,2,4,-2,3,4,1,-3,4,1,-2,-4,2,-4,-4,-1,3,-4,1,2,3), ncol=3)
-phi2 <- as.matrix(read.csv("dubois20.cnf.txt", header=FALSE, skip=13, sep="", colClasses=c(NA,NA,NA,"NULL")))
-
+phi1 <- matrix(c(-1,-2,1,1,2,-1,1,2,3,-3,-2,-3,3,2,4,4,4,-4,-4,-4,3,0,0,0,0,0,0,0), ncol=4)
+phi2 <- as.matrix(read.csv("C:\\Users\\Marcin\\Documents\\GitHub\\Computing-Inteligence-R\\Lab1\\dubois20.cnf.txt", header=FALSE, skip=13, sep="", colClasses=c(NA,NA,NA,"NULL")))
 fitnessFunc <- function(temp) {
-  phi = phi2
+  phi = phi1
   licz = 0
   wynik = FALSE
   max = max(as.numeric(unlist(phi)))
