@@ -1,4 +1,3 @@
-install.packages("VIM")
 library(VIM)
 library(deducorrect)
 
@@ -17,3 +16,5 @@ for (i in 1:ncol(clean.iris.mean)) {
   clean.iris.mean[sample(1:n, replace = TRUE), i] <- NA
 }
 clean.iris.knn <- kNN(clean.iris.mean)
+
+

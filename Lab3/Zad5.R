@@ -4,7 +4,7 @@ library(e1071)
 library(party)
 library(caret)
 # Dane
-womens = read.csv("diabetes.csv")
+womens = read.csv("/home/marcin/Computing-Inteligence-R/Lab3/diabetes.csv")
 round(prop.table(table(womens$class)) * 100, digits = 1)
 set.seed(1234)
 ind <- sample(2, nrow(womens), replace=TRUE, prob=c(0.67, 0.33))
@@ -13,10 +13,6 @@ womens.test <- womens[ind==2, 1:8]
 womens.trainLabels <- womens[ind==1, 9]
 womens.testLabels <- womens[ind==2, 9]
 # kNN
-womens_pred1 <- knn(train = womens.training, test = womens.test, cl = womens.trainLabels, k=1)
-womens_pred3 <- knn(train = womens.training, test = womens.test, cl = womens.trainLabels, k=3)
-womens_pred5 <- knn(train = womens.training, test = womens.test, cl = womens.trainLabels, k=5)
-womens_pred11 <- knn(train = womens.training, test = womens.test, cl = womens.trainLabels, k=11)
 cm_knn1 <- confusionMatrix(womens_pred1, womens.testLabels)
 cm_knn3 <- confusionMatrix(womens_pred3, womens.testLabels)
 cm_knn5 <- confusionMatrix(womens_pred5, womens.testLabels)
@@ -86,3 +82,4 @@ tpr <- c(knn1_tpr, knn3_tpr, knn5_tpr, knn11_fpr, nb_tpr, ct_tpr)
 plot(fpr, tpr, col=colors, bg=colors, pch=21, xlab="False Positive Rate", ylab="True Positive Rate",
      main="False Positive and True Positive Ratings")
 legend("bottomright", classificators.names, fill=colors)
+
